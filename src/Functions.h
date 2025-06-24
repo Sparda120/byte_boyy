@@ -1,29 +1,30 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
+#include <Adafruit_BMP280.h>
 #include <Adafruit_ILI9341.h>
 #include <Arduino.h>
 
+// pins & globals
 extern const int buzzerPin;
 extern const int trigPin;
 extern const int echoPin;
+extern int selectedMenuItem;
 extern int playerLevel;
-extern int playerXP;
-extern int xpToNextLevel;
+extern Adafruit_ILI9341 tft;
+extern Adafruit_BMP280 bmp; 
 
-
-// Declare your functions here (function prototypes)
+// your existing prototypes
 void drawRandomHex(int lines);
 void bootCheckSequence();
 void wipeTransition(uint16_t bgColor);
 void showWelcome();
 void drawMainMenu(int selectItem);
 void playPipBoyBootSound();
-void addXP(int amount);
-void drawLevelInfo();
-void drawLevelBarOutline(int level);
-void updateXPBarFill(int currentXP, int maxXP);
 
+// ---- add these ----
+long readDistance();                  // sensor helper
+void drawDistanceScreen();            // draws the static frame
+void updateDistanceValue();           // updates the number in place
 
-
-#endif
+#endif // FUNCTIONS_H
