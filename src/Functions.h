@@ -5,7 +5,7 @@
 #include <Adafruit_ILI9341.h>
 #include <Arduino.h>
 
-// pins & globals
+// Variaveis
 extern const int buzzerPin;
 extern const int trigPin;
 extern const int echoPin;
@@ -14,17 +14,15 @@ extern int playerLevel;
 extern Adafruit_ILI9341 tft;
 extern Adafruit_BMP280 bmp; 
 
-// your existing prototypes
+// Referencia de todas as funções
 void drawRandomHex(int lines);
 void bootCheckSequence();
 void wipeTransition(uint16_t bgColor);
 void showWelcome();
 void drawMainMenu(int selectItem);
 void playPipBoyBootSound();
+long readDistance();                 
+void drawDistanceScreen();            
+void updateDistanceValue();           
 
-// ---- add these ----
-long readDistance();                  // sensor helper
-void drawDistanceScreen();            // draws the static frame
-void updateDistanceValue();           // updates the number in place
-
-#endif // FUNCTIONS_H
+#endif 
