@@ -130,6 +130,10 @@ void drawMainMenu(int selectedItem) {
   tft.fillRect(tft.width() - 10, tft.height() - 10, 10, 10, ILI9341_GREEN);
 }
 
+void playClickSound() {
+  tone(buzzerPin, 1000, 50);  // 1 kHz durante 50 ms
+  // nota: com 3º parâmetro de duração não precisas de noTone()
+}
 
 
 

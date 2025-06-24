@@ -23,6 +23,7 @@ void drawMainMenu(int selectItem);
 void playPipBoyBootSound();
 long readDistance();                 
 void drawDistanceScreen();            
-void updateDistanceValue();           
+void updateDistanceValue();     
+void playClickSound();      
 
 #endif 

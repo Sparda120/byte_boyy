@@ -83,11 +83,13 @@ void setup() {
 void loop() {
   // 1) Leitura imediata dos botões para mudar tab
   if (digitalRead(button1Pin) == LOW) {
+    playClickSound(); 
     selectedMenuItem = 1;            // Seleciona DISTÂNCIA
     while (digitalRead(button1Pin) == LOW) {}  // Esmaga debouncing
     delay(50);
   }
   if (digitalRead(button2Pin) == LOW) {
+    playClickSound(); 
     selectedMenuItem = 0;            // Seleciona TEMPERATURA
     while (digitalRead(button2Pin) == LOW) {}
     delay(50);
@@ -96,6 +98,7 @@ void loop() {
   // 2) Redesenho do ecrã se a tab mudou
   static int lastMenu = -1;
   if (selectedMenuItem != lastMenu) {
+    playClickSound(); 
     if (selectedMenuItem == 1) drawDistanceScreen();
     else                      drawMainMenu(selectedMenuItem);
     lastMenu = selectedMenuItem;
